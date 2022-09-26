@@ -51,5 +51,30 @@ RSpec.describe User, type: :model do
     end
     
   end
+
+  describe ".authenticate_with_credentials" do
+
+    it "should authenticate with correct credentials" do
+      @user = User.new name: "John", email: "john@john.com", password: "password", password_confirmation: "password"
+      @user.save
+      @correct_user = User.authenticate_with_credentials("john@john.com", "password")
+      expect(@correct_user).to eq(@user)
+    end
+
+    it "should authenticate with incorrect casing" do
+      @user = User.new name: "John", email: "john@john.com", password: "password", password_confirmation: "password"
+      @user.save
+      @incorrect_user = User.authenticate_with_credentials("John@John.com", "password")
+      expect(@incorrect_user).to eq(@user)
+    end
+
+    it "should authenticate with spaces before and after email" do
+      @user = User.new name: "John", email: "john@john.com", password: "password", password_confirmation: "password"
+      @user.save
+      @incorrect_user = User.authenticate_with_credentials(" john@john.com ", "password")
+      expect(@incorrect_user).to eq(@user)
+    end
+
+  end
     
 end
