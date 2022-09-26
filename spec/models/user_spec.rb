@@ -30,7 +30,25 @@ RSpec.describe User, type: :model do
       expect(correct_user.password).to eq(correct_user.password_confirmation)
     end
 
-    
+    it "should be invalid without an email" do
+      expect(@user).to_not be_valid
+      expect(@user.errors.messages[:email]).to include("can't be blank")
+    end
+
+    it "should be invalid if email is not unique" do
+      @user1 = User.new name: "John", email: "john@john.com", password: "password", password_confirmation: "password"
+      @user2 = User.new name: "John", email: "john@john.com", password: "password", password_confirmation: "password"
+      @user1.save
+      @user2.save
+      expect(@user2).to_not be_valid
+      expect(@user2.errors.messages[:email]).to include("has already been taken")
+    end
+
+    it "should be invalid if password is less than 6 characters" do
+      @user = User.new name: "John", email: "john@john.com", password: "pass", password_confirmation: "pass"
+      expect(@user).to_not be_valid
+      expect(@user.errors.messages[:password]).to include("is too short (minimum is 6 characters)")
+    end
     
   end
     
