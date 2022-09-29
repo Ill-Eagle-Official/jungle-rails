@@ -1,8 +1,8 @@
 # Jungle
 
-A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
+Do you love plants? Do you love buying them? Well holy moly, do we have the app for you! Welcome to Jungle, a mini e-commerce app that is meant to teach the principles of Ruby on Rails. Jungle is a mini e-commerce app that allows users to browse products, add them to their cart, and purchase them. It also allows admins to add new products and categories to the store.
 
-## Setup
+## Getting Started
 
 1. Run `bundle install` to install dependencies
 2. Create `config/database.yml` by copying `config/database.example.yml`
@@ -29,3 +29,19 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 - Bootstrap 5
 - PostgreSQL 9.x
 - Stripe
+
+## Testing Dependencies
+
+- RSpec
+- Cypress on Rails
+
+## Screenshots
+
+!["Screenshot of Jungle Home Page"](https://github.com/OfficialBirdDaddy/jungle-rails/blob/master/docs/jungle-home-page.png?raw=true)
+
+!["Screenshot of Jungle 'All Products'"](https://github.com/OfficialBirdDaddy/jungle-rails/blob/master/docs/jungle-product-views.png?raw=true)
+
+!["Screenshot of Jungle Product View Page"](https://github.com/OfficialBirdDaddy/jungle-rails/blob/master/docs/jungle-product-page.png?raw=true)
+
+!["Screenshot of Jungle Cart"](https://github.com/OfficialBirdDaddy/jungle-rails/blob/master/docs/jungle-cart.png?raw=true)
+
